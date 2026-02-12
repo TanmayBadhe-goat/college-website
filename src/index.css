@@ -1,0 +1,12 @@
+/* Hogwarts School of Witchcraft & Wizardry */
+/* Base styles - defer to style.css for main theming */
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+}
