@@ -17,10 +17,10 @@ import Career from './pages/Career.jsx';
 import AcademicCalendar from './pages/AcademicCalendar.jsx';
 
 function App() {
-  // State to track the current page - default is 'home'
+  // This tracks back to home page as default
   const [currentPage, setCurrentPage] = useState('home');
 
-  // Function to render the appropriate page component based on state
+  // Function to choose page which needed 
 const renderPage = () => {
   switch (currentPage) {
     case 'home':

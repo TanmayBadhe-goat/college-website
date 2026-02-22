@@ -1,6 +1,5 @@
 /**
- * Admission Component - Hogwarts Enrollment
- * Magical acceptance letter request form
+Admission
  */
 import React, { useState } from 'react';
 

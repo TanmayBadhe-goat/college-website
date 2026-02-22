@@ -1,9 +1,5 @@
 /**
- * Navbar Component
- * Responsive navigation bar with mobile hamburger menu
- * Props:
- *   - currentPage: string indicating the active page
- *   - setCurrentPage: function to change the current page
+ * Navbar 
  */
 import React, { useState } from 'react';
 

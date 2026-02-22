@@ -1,6 +1,5 @@
 /**
- * Departments Component (Hogwarts Houses)
- * Displays the four noble houses and magical facilities
+Departments 
  */
 import React from 'react';
 

@@ -1,6 +1,6 @@
 /**
- * About Component
- * Page describing Hogwarts history, founders, and magical legacy
+ * About
+ * Page describing Hogwarts history
  */
 import React from 'react';
 
