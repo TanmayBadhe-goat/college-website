@@ -214,11 +214,16 @@ function Contact() {
             <div className="map-container">
               <h2 className="map-title">Find Hogwarts</h2>
               <div className="map-placeholder">
-                <div className="map-content">
-                  <span className="map-icon">🗺️</span>
-                  <p>Marauder's Map</p>
-                  <p className="map-address">"I solemnly swear that I am up to no good"</p>
-                </div>
+                <img
+                  src="/map.jpg"
+                  alt="Map"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                  }}
+                />
               </div>
               <div className="directions-box">
                 <h4>How to Reach Hogwarts</h4>

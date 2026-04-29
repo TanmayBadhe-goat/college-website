@@ -1,24 +1,30 @@
 /**
  * Navbar 
  */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 
-function Navbar({ currentPage, setCurrentPage }) {
+function Navbar() {
   // State to control mobile menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   // Navigation links data
   const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'departments', label: 'Departments' },
-    { id: 'admission', label: 'Admission' },
-    { id: 'contact', label: 'Contact' },
+    { to: '/', label: 'Home' },
+    { to: '/about', label: 'About' },
+    { to: '/departments', label: 'Departments' },
+    { to: '/admission', label: 'Admission' },
+    { to: '/contact', label: 'Contact' },
+    { to: '/calendar', label: 'Calendar' },
+    { to: '/library', label: 'Library' },
+    { to: '/portal', label: 'Portal' },
+    { to: '/career', label: 'Career' },
   ];
 
   // Handle navigation click
-  const handleNavClick = (pageId) => {
-    setCurrentPage(pageId);
+  const handleNavClick = (to) => {
+    navigate(to);
     setIsMenuOpen(false); // Close mobile menu after clicking
   };
 
@@ -27,11 +33,20 @@ function Navbar({ currentPage, setCurrentPage }) {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setIsMenuOpen(false);
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
         {/* Logo/Brand */}
-        <div className="navbar-brand" onClick={() => handleNavClick('home')}>
+        <div className="navbar-brand" onClick={() => handleNavClick('/')}>
           <span className="brand-icon">⚡</span>
           <span className="brand-text">Hogwarts</span>
         </div>
@@ -48,13 +63,15 @@ function Navbar({ currentPage, setCurrentPage }) {
         {/* Navigation links */}
         <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           {navLinks.map((link) => (
-            <li key={link.id} className="navbar-item">
-              <button
-                className={`navbar-link ${currentPage === link.id ? 'active' : ''}`}
-                onClick={() => handleNavClick(link.id)}
+            <li key={link.to} className="navbar-item">
+              <NavLink
+                to={link.to}
+                className={({ isActive }) => `navbar-link ${isActive ? 'active' : ''}`}
+                onClick={() => setIsMenuOpen(false)}
+                end={link.to === '/'}
               >
                 {link.label}
-              </button>
+              </NavLink>
             </li>
           ))}
         </ul>

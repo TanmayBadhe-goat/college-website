@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Footer({ setCurrentPage }) {
+function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -23,10 +24,10 @@ function Footer({ setCurrentPage }) {
         <div className="footer-section">
           <h3 className="footer-title">Quick Links</h3>
           <ul className="footer-links">
-            <li onClick={() => setCurrentPage('AcademicCalendar')}>Academic Calendar</li>
-            <li onClick={() => setCurrentPage('library')}>The Library</li>
-            <li onClick={() => setCurrentPage('portal')}>Wizard Portal</li>
-            <li onClick={() => setCurrentPage('career')}>Wizarding Careers</li>
+            <li><Link to="/calendar">Academic Calendar</Link></li>
+            <li><Link to="/library">The Library</Link></li>
+            <li><Link to="/portal">Wizard Portal</Link></li>
+            <li><Link to="/career">Wizarding Careers</Link></li>
           </ul>
         </div>
 

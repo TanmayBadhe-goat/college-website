@@ -1,7 +1,10 @@
 /*home */
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function Home({ setCurrentPage }) {
+function Home() {
+  const navigate = useNavigate();
+
   // Feature cards data - Magical subjects
   const features = [
     {
@@ -55,8 +58,8 @@ function Home({ setCurrentPage }) {
             "Draco Dormiens Nunquam Titillandus" - Never Tickle a Sleeping Dragon
           </p>
           <div className="hero-buttons">
-            <button className="btn btn-primary" onClick={() => setCurrentPage('departments')}>Explore Houses</button>
-            <button className="btn btn-secondary" onClick={() => setCurrentPage('about')}>Our Legacy</button>
+            <button className="btn btn-primary" onClick={() => navigate('/departments')}>Explore Houses</button>
+            <button className="btn btn-secondary" onClick={() => navigate('/about')}>Our Legacy</button>
           </div>
         </div>
       </section>
@@ -101,7 +104,7 @@ function Home({ setCurrentPage }) {
           <p className="cta-text">
             Join the ranks of legendary witches and wizards. Your acceptance letter awaits!
           </p>
-          <button className="btn btn-primary btn-large" onClick={() => setCurrentPage('admission')}>Request Your Letter</button>
+          <button className="btn btn-primary btn-large" onClick={() => navigate('/admission')}>Request Your Letter</button>
         </div>
       </section>
     </div>
